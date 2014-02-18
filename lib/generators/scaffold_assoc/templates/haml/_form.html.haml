@@ -1,10 +1,15 @@
-= simple_form_for([@<%= parent_singular_table_name %>, @<%= singular_table_name %>]) do |f|
-  = f.error_notification
+= form_for [@<%= parent_singular_table_name %>, @<%= singular_table_name %>] do |f|
+  - if @<%= singular_table_name %>.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
+      %ul
+        - @<%= singular_table_name %>.errors.full_messages.each do |msg|
+          %li= msg
 
-  .form-inputs
-  <%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
-  <%- end -%>
-
-  .form-actions
-    = f.button :submit
+<% for attribute in attributes -%>
+  .field
+    = f.label :<%= attribute.name %>
+    = f.<%= attribute.field_type %> :<%= attribute.name %>
+<% end -%>
+  .actions
+    = f.submit 'Save'
