@@ -26,4 +26,4 @@
 
 <br>
 
-<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+<%%= link_to 'New <%= human_name %>', new_<%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>) %>
