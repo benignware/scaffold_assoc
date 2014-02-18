@@ -19,5 +19,5 @@ rails g scaffold Post title:string
 
 generate association scaffold:
 ```
-rails g scaffold_assoc Post/Comment title:string
+rails g scaffold_assoc Post/Comment content:text
 ```
