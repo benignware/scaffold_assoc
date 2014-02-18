@@ -1,0 +1,9 @@
+%h1 Editing <%= singular_table_name %>
+
+= render 'form'
+
+%ul.pagination.pagination-sm
+  %li
+    = link_to 'Show', <%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, @<%= singular_table_name %>)
+  %li
+    = link_to 'Back', <%= parent_singular_table_name %>_<%= plural_table_name %>_path(@<%= parent_singular_table_name %>)

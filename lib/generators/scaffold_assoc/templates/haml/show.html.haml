@@ -1,0 +1,19 @@
+%h1 Showing <%= singular_table_name %>
+%table.table
+  %thead
+    %tr.row
+      %th.col-sm-1= 'Name'
+      %th= 'Value'
+  %tbody
+<% for attribute in attributes -%>
+    %tr.row
+      %td.col-sm-1='<%= attribute.human_name %>'
+      %td=@<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+  
+
+%ul.pagination.pagination-sm
+  %li
+    = link_to 'Edit', edit_<%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, @<%= singular_table_name %>)
+  %li
+    = link_to 'Back', <%= parent_singular_table_name %>_<%= plural_table_name %>_path(@<%= parent_singular_table_name %>)

@@ -1,0 +1,2 @@
+module ScaffoldAssoc
+end
