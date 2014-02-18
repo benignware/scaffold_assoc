@@ -7,11 +7,11 @@ require "scaffold_assoc/version"
 Gem::Specification.new do |s|
   s.name        = "scaffold_assoc"
   s.version     = ScaffoldAssoc::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ScaffoldAssoc."
-  s.description = "TODO: Description of ScaffoldAssoc."
+  s.authors     = ["Rafael Nowrotek"]
+  s.email       = ["mail@benignware.com"]
+  s.homepage    = "https://github.com/benignware/"
+  s.summary     = "Nested scaffolding with rails 4"
+  s.description = "Nested scaffolding with rails 4"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
