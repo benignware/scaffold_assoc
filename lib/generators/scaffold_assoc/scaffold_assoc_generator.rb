@@ -16,8 +16,8 @@ module Rails
       class_option :orm, :banner => "NAME", :type => :string, :required => true, :default => :active_record, 
                        :desc => "ORM to generate the controller for"
       
+      class_option :template_engine, :default => :erb
       class_option :force_plural, type: :boolean, desc: "Forces the use of a plural ModelName"
-      
       class_option :skip_model, :type => :boolean, :default => false, :desc => "Don't generate a model or migration."    
       class_option :skip_migration, :type => :boolean, :default => false, :desc => "Don't generate migration for model."
       class_option :skip_controller, :type => :boolean, :default => false, :desc => "Don't generate controller for model."
@@ -80,7 +80,7 @@ module Rails
       end
 
       def handler
-        :haml
+        options[:template_engine]
       end
       
       def parent_table_name
