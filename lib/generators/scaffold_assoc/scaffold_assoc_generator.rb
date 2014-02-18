@@ -47,6 +47,19 @@ module Rails
         ActiveRecord::Migration.next_migration_number(@migration_number)
       end
       
+      def create_route
+        if options[:skip_model] || options[:skip_route]
+          return
+        end
+        inject_into_file "config/routes.rb", after: /\s*[^#]resources :#{parent_table_name}/ do
+<<-CODE
+ do
+    resources :#{table_name}
+  end
+CODE
+        end
+      end
+      
       def create_model
         if options[:skip_model]
           return
