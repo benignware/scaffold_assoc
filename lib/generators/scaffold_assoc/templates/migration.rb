@@ -1,4 +1,4 @@
-class Create<%= plural_table_name.classify %> < ActiveRecord::Migration
+class Create<%= table_name.classify.pluralize %> < ActiveRecord::Migration
   def self.up
     create_table :<%= table_name %> do |t| 
 <% attributes.each do |a| %>
