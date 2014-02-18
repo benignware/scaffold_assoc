@@ -48,14 +48,13 @@ module Rails
       end
       
       def create_route
-        if options[:skip_model] || options[:skip_route]
-          return
-        end
-        inject_into_file "config/routes.rb", after: /\s*[^#]resources :#{parent_table_name}/ do
-<<-CODE
- do
-    resources :#{table_name}
+        gsub_file "config/routes.rb", /(\s*resources :#{parent_table_name})\s*\n/, <<-CODE
+\\1 do
   end
+CODE
+        insert_into_file "config/routes.rb", after: /(\s*resources :#{parent_table_name})\s*do\s*\n/ do 
+<<-CODE
+     resources :#{table_name} 
 CODE
         end
       end
