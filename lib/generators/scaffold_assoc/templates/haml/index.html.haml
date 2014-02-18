@@ -1,23 +1,23 @@
 %h1
-  Listing #{plural_table_name}
+  Listing <%= plural_table_name %>
 %table
   %thead
     %tr
-      - attributes.reject(&:password_digest?).each do |attribute|
-        %th= attribute.human_name
+<% attributes.each_with_index do |attribute, index| -%>
+      %th <%= attribute.human_name %>
+<% end -%>
       %th{:colspan => "3"}
   %tbody
-    <% @<%= plural_table_name %>.each do |#{singular_table_name}| %>
-    %tr
-      - attributes.reject(&:password_digest?).each do |attribute|
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr
+<% for attribute in attributes -%>
+        %td= <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
         %td
-          <%= <%= singular_table_name %>.#{attribute.name} %>
-      %td
-        <%= link_to 'Show', <%= parent_singular_table_name %>_#{singular_table_name}_path(@#{parent_singular_table_name}, #{singular_table_name}) %>
-      %td
-        <%= link_to 'Edit', edit_<%= parent_singular_table_name %>_#{singular_table_name}_path(@#{parent_singular_table_name}, #{singular_table_name}) %>
-      %td
-        <%= link_to 'Destroy', <%= parent_singular_table_name %>_#{singular_table_name}_path(@#{parent_singular_table_name}, #{singular_table_name}), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+          = link_to 'Show', <%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, <%= singular_table_name %>)
+        %td
+          = link_to 'Edit', edit_<%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, <%= singular_table_name %>)
+        %td
+          = link_to 'Destroy', <%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, <%= singular_table_name %>), method: :delete, data: { confirm: 'Are you sure?' }
 %br
-  <%= link_to 'New <%= human_name %>', new_#{parent_singular_table_name}_#{singular_table_name}_path(@#{parent_singular_table_name}) %>
+  = link_to 'New <%= human_name %>', new_<%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>)

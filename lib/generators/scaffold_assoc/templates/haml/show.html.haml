@@ -1,9 +1,11 @@
-%p#notice <%= notice %>
-- attributes.reject(&:password_digest?).each do |attribute|
+%p#notice
+  = notice
+<% for attribute in attributes -%>
   %p
-    %strong
-      = attribute.human_name
-      \:
-    <%= @<%= singular_table_name %>.#{attribute.name} %>
-<%= link_to 'Edit', edit_<%= parent_singular_table_name %>_#{singular_table_name}_path(@#{parent_singular_table_name}, @#{singular_table_name}) %> |
-<%= link_to 'Back', <%= parent_singular_table_name %>_#{plural_table_name}_path(@#{parent_singular_table_name}) %>
+    %strong 
+      <%= attribute.human_name %>:
+    = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+= link_to 'Edit', edit_<%= parent_singular_table_name %>_<%= singular_table_name %>_path(@<%= parent_singular_table_name %>, @<%= singular_table_name %>)
+= " | "
+= link_to 'Back', <%= parent_singular_table_name %>_<%= plural_table_name %>_path(@<%= parent_singular_table_name %>)

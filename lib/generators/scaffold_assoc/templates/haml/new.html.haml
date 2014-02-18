@@ -1,5 +1,4 @@
-%h1
-  New #{singular_table_name}
-<%= render 'form' %>
+%h1 New <%= singular_table_name %>
+= render 'form'
 
-<%= link_to 'Back', <%= parent_singular_table_name %>_#{plural_table_name}_path(@#{parent_singular_table_name}) %>
+= link_to 'Back', <%= parent_singular_table_name %>_<%= plural_table_name %>_path(@<%= parent_singular_table_name %>)
