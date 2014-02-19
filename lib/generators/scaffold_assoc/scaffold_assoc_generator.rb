@@ -1,6 +1,3 @@
-#require 'rails/generators/rails/scaffold/scaffold_generator'
-#require File.join(File.dirname(__FILE__), '../scaffold_association_controller/association_named_base')
-
 module Rails
   module Generators
     class ScaffoldAssocGenerator < NamedBase  # :nodoc:
@@ -9,7 +6,11 @@ module Rails
       
       attr_accessor :parent_name, :flags
       
-      source_root File.expand_path('../templates', __FILE__)
+      def source_paths
+        [
+        File.expand_path(File.join(File.dirname(__FILE__), '../../rails/scaffold_assoc/templates')), 
+        File.expand_path(File.join(File.dirname(__FILE__), '/templates'))] 
+      end
       
       argument :attributes, type: :array, default: [], banner: "field[:type][:index] field[:type][:index]"
       
@@ -31,7 +32,6 @@ module Rails
         name = a[1]
         args[0] = name
         super
-
         assign_controller_names!(name.pluralize)
       end
       
