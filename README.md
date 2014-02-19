@@ -21,3 +21,8 @@ generate association scaffold:
 ```
 rails g scaffold_assoc Post/Comment content:text
 ```
+
+install view templates to lib/rails/scaffold_assoc/templates:
+```
+rails g scaffold_assoc:install
+```
