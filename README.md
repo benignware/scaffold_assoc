@@ -1,7 +1,7 @@
 scaffold_assoc
 ==============
 
-Nested scaffolding for rails 4
+Scaffolding nested resources with rails 4
 
 
 Usage
