@@ -35,7 +35,7 @@ module Rails
         assign_controller_names!(name.pluralize)
       end
       
-      def create_migration
+      def scaffold_assoc_create_migration
         if options[:skip_model] || options[:skip_migration]
           return
         end
