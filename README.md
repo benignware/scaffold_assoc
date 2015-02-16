@@ -9,7 +9,7 @@ Usage
 
 ```
 # Gemfile
-gem "scaffold_assoc", github: "rexblack/scaffold_assoc"
+gem "scaffold_assoc", github: "benignware/scaffold_assoc"
 ```
 
 generate parent scaffold:
