@@ -8,7 +8,7 @@ Install
 
 ```
 # Gemfile
-gem "scaffold_assoc", github: "benignware/scaffold_assoc"
+gem "scaffold_assoc"
 ```
 
 Usage
