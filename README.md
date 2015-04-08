@@ -1,7 +1,7 @@
 scaffold_assoc
 ==============
 
-> Scaffolding nested resources in Rails
+> Scaffold nested resources with Rails
 
 Install
 -------

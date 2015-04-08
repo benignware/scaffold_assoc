@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Rafael Nowrotek"]
   s.email       = ["mail@benignware.com"]
   s.homepage    = "https://github.com/benignware/"
-  s.summary     = "Nested scaffolding with rails 4"
-  s.description = "Nested scaffolding with rails 4"
+  s.summary     = "Scaffold nested resources with Rails"
+  s.description = "Scaffold nested resources with Rails"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
