@@ -3,9 +3,8 @@ scaffold_assoc
 
 > Scaffolding nested resources in Rails
 
-
 Install
------
+-------
 
 ```
 # Gemfile
@@ -36,7 +35,8 @@ class Post < ActiveRecord::Base
 end
 ```
 
-### Customize views
+Customize views
+---------------
 
 The plugin ships with .erb and .haml-templates.
 
